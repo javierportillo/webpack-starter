@@ -1,3 +1,7 @@
+// IMPORT SASS TO THIS FILE
+
+import css from './app.sass';
+
 // TESTING SOME ES6 FEATURES WITH BABEL
 
 let a = 1000;
