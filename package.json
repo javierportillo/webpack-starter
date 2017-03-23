@@ -1,0 +1,21 @@
+{
+  "name": "webpack-starter",
+  "version": "0.0.0",
+  "description": "My first module bundler yay!",
+  "main": "src/app.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javierportillo/webpack-starter.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Javier Portillo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javierportillo/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/javierportillo/webpack-starter#readme"
+}
