@@ -4,6 +4,7 @@
   "description": "My first module bundler yay!",
   "main": "src/app.js",
   "scripts": {
+    "dev": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/javierportillo/webpack-starter/issues"
   },
-  "homepage": "https://github.com/javierportillo/webpack-starter#readme"
+  "homepage": "https://github.com/javierportillo/webpack-starter#readme",
+  "devDependencies": {
+    "webpack": "^2.3.1"
+  }
 }
