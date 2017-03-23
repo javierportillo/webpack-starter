@@ -22,6 +22,14 @@ module.exports = {
                         plugins: ['transform-runtime']
                     }
                 }
+            },
+            {
+                test: /\.sass$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'sass-loader'}
+                ]
             }
         ]
     },
