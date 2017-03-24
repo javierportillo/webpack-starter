@@ -2,13 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+// EXTRACT APP ENTRY SASS TO CSS
+const extractAppCss = new ExtractTextPlugin('[name].bundle.css')
+
 module.exports = {
     entry: {
-        main: './src/app.js'
+        app: './src/app.js'
     },
 
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
 
@@ -27,27 +30,24 @@ module.exports = {
             },
             {
                 test: /\.sass$/,
-                use: ExtractTextPlugin.extract({
+                use: extractAppCss.extract({
                     fallback: 'style-loader',
                     use: ['css-loader', 'sass-loader']
                 })
             },
             {
                 test: /\.pug$/,
-                use: [
-                    {loader: 'html-loader'},
-                    {loader: 'pug-html-loader'}
-                ]
+                use: ['html-loader', 'pug-html-loader']
             }
         ]
     },
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/app.pug'
+            template: 'src/app.pug',
+            filename: 'app.html'
         }),
-
-        new ExtractTextPlugin('app.css')
+        extractAppCss
     ],
 
     devServer: {
