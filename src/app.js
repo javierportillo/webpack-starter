@@ -2,10 +2,6 @@
 
 import './app.sass';
 
-// IMPORT HTML FILE
-
-import './app.pug';
-
 // TESTING SOME ES6 FEATURES WITH BABEL
 
 let a = 1000;

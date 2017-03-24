@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -34,19 +35,18 @@ module.exports = {
             {
                 test: /\.pug$/,
                 use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[path][name].html'
-                        }
-                    },
-                    {loader: 'extract-loader'},
                     {loader: 'html-loader'},
                     {loader: 'pug-html-loader'}
                 ]
             }
         ]
     },
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/app.pug'
+        })
+    ],
 
     devServer: {
         publicPath: '/dist/'
