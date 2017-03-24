@@ -1,9 +1,15 @@
+const isProduction = process.env.NODE_ENV === 'production';
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 // EXTRACT APP ENTRY SASS TO CSS
-const extractAppCss = new ExtractTextPlugin('[name].bundle.css')
+const extractAppCss = new ExtractTextPlugin({
+    filename: '[name].bundle.css',
+    disable: !isProduction
+});
 
 module.exports = {
     entry: {
@@ -30,10 +36,10 @@ module.exports = {
             },
             {
                 test: /\.sass$/,
-                use: extractAppCss.extract({
+                use: isProduction ? extractAppCss.extract({
                     fallback: 'style-loader',
                     use: ['css-loader', 'sass-loader']
-                })
+                }) : ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.pug$/,
@@ -47,10 +53,13 @@ module.exports = {
             template: 'src/app.pug',
             filename: 'app.html'
         }),
-        extractAppCss
+        extractAppCss,
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
     ],
 
     devServer: {
-        publicPath: '/dist/'
+        publicPath: '/dist/',
+        hot: true
     }
 }
