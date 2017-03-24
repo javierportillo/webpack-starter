@@ -32,16 +32,17 @@ module.exports = {
                 ]
             },
             {
-                test: /\.html$/,
+                test: /\.pug$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[path][name].[ext]'
+                            name: '[path][name].html'
                         }
                     },
                     {loader: 'extract-loader'},
-                    {loader: 'html-loader'}
+                    {loader: 'html-loader'},
+                    {loader: 'pug-html-loader'}
                 ]
             }
         ]
