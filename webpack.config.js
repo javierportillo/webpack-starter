@@ -13,13 +13,16 @@ const extractAppCss = new ExtractTextPlugin({
 
 module.exports = {
     entry: {
-        app: './src/app.js'
+        app: './app.js'
     },
 
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
+
+    context: path.resolve(__dirname, 'src'),
 
     module: {
         rules: [
@@ -44,13 +47,17 @@ module.exports = {
             {
                 test: /\.pug$/,
                 use: ['html-loader', 'pug-html-loader']
+            },
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: 'file-loader'
             }
         ]
     },
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/app.pug',
+            template: 'app.pug',
             filename: 'app.html'
         }),
         extractAppCss,
@@ -59,7 +66,8 @@ module.exports = {
     ],
 
     devServer: {
-        publicPath: '/dist/',
-        hot: true
+        publicPath: '/',
+        hot: false,
+        contentBase: path.join(__dirname, 'dist')
     }
 }
