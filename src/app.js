@@ -33,3 +33,9 @@ const imTrying = {
 
 console.log(doNotMutateMePlease.age); // 20
 console.log(imTrying.age); // 35
+
+const cantChangeme = 0;
+
+console.log(`This is a constant: ${cantChangeme}`);
+
+// cantChangeme = 2; // SyntaxError "cantChangeme" is read-only
