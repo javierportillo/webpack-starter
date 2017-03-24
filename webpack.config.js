@@ -30,6 +30,19 @@ module.exports = {
                     {loader: 'css-loader'},
                     {loader: 'sass-loader'}
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]'
+                        }
+                    },
+                    {loader: 'extract-loader'},
+                    {loader: 'html-loader'}
+                ]
             }
         ]
     },

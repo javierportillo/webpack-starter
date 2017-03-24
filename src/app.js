@@ -1,6 +1,10 @@
 // IMPORT SASS TO THIS FILE
 
-import css from './app.sass';
+import './app.sass';
+
+// IMPORT HTML FILE
+
+import './app.html';
 
 // TESTING SOME ES6 FEATURES WITH BABEL
 
