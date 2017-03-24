@@ -4,7 +4,8 @@
   "description": "My first module bundler yay!",
   "main": "src/app.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "serve": "webpack-dev-server",
+    "dev": "rimraf ./dist/* && webpack",
     "build": "rimraf ./dist/* && webpack -p"
   },
   "repository": {
