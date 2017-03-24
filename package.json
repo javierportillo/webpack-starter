@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "webpack-dev-server",
     "dev": "rimraf ./dist/* && webpack",
-    "build": "rimraf ./dist/* && webpack -p"
+    "build": "rimraf ./dist/* && NODE_ENV=production webpack -p"
   },
   "repository": {
     "type": "git",
