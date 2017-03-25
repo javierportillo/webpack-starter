@@ -6,7 +6,9 @@
   "scripts": {
     "serve": "webpack-dev-server",
     "dev": "rimraf ./dist/* && webpack",
-    "build": "rimraf ./dist/* && NODE_ENV=production webpack -p"
+    "build": "rimraf ./dist/* && NODE_ENV=production webpack -p",
+    "testing": "rimraf ./test/bundle/* && webpack --config webpack.testing.config.js",
+    "test": "mocha --require source-map-support/register test/bundle/test-bundle.js"
   },
   "repository": {
     "type": "git",
