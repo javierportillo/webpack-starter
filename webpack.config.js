@@ -25,7 +25,7 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [['env', {modules: false}], 'stage-3'],
-                        plugins: ['transform-runtime', 'check-es2015-constants']
+                        plugins: ['check-es2015-constants']
                     }
                 }
             },
