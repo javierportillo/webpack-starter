@@ -4,7 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './app.js'
+        app: './app.js',
+        other: './other/other.js'
     },
 
     output: {
@@ -49,7 +50,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'app.pug',
-            filename: 'app.html'
+            filename: 'index.html',
+            chunks: ['app']
+        }),
+        new HtmlWebpackPlugin({
+            template: 'other/other.pug',
+            filename: 'other/index.html',
+            chunks: ['other']
         }),
         new ExtractTextPlugin({
             filename: '[name].bundle.css',
